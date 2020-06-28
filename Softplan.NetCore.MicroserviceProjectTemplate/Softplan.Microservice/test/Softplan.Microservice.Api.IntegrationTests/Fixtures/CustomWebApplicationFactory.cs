@@ -11,7 +11,6 @@ namespace Softplan.Microservice.Api.IntegrationTests.Fixtures
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
             builder.UseEnvironment("Test");
-            builder.UseStartup(typeof(Api.Startup));
         }
     }
 }

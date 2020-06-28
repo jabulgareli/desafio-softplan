@@ -9,17 +9,23 @@ namespace Softplan.CalculadoraJuros.Domain.Entities
         public decimal ValorInicial { get; private set; }
         public int QuantidadeMeses { get; private set; }
         public decimal PercentualJuros { get; private set; }
+        public decimal MultiplicadorJuros { get; private set; }
 
-        public SolicitacaoSimulacao(decimal valorInicial, int quantidadeMeses, decimal percentualJuros)
+        public SolicitacaoSimulacao(decimal valorInicial, int quantidadeMeses, decimal multiplicadorJuros)
         {
             ValorInicial = valorInicial;
             QuantidadeMeses = quantidadeMeses;
-            PercentualJuros = percentualJuros;
+            MultiplicadorJuros = multiplicadorJuros;
+            PercentualJuros = multiplicadorJuros * 100;
         }
 
         public ResultadoSimulacaoJuros Calcular()
         {
-            return new ResultadoSimulacaoJuros(0, 0, this);
+            var valorFinal = ValorInicial * Convert.ToDecimal(Math.Pow(Convert.ToDouble((1 + MultiplicadorJuros)), QuantidadeMeses));
+            var valorFinalTruncado = Math.Truncate(valorFinal * 100) / 100;
+            var valorJuros = valorFinalTruncado - ValorInicial;
+
+            return new ResultadoSimulacaoJuros(valorFinalTruncado, valorJuros, this);
         }
     }
 }

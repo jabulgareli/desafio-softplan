@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Softplan.Taxas.Application.Interfaces;
+using Softplan.Taxas.Application.Services;
 using System;
 
 namespace Softplan.Taxas.Cross.IoC.DI
@@ -7,7 +9,7 @@ namespace Softplan.Taxas.Cross.IoC.DI
     {
         public static void RegisterServices(IServiceCollection serviceCollection)
         {
-
+            serviceCollection.AddScoped<ITaxaAppService, TaxaAppService>();
         }
     }
 }

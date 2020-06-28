@@ -8,4 +8,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Softplan.Taxas.Application\Softplan.Taxas.Application.csproj" />
+  </ItemGroup>
+
 </Project>
