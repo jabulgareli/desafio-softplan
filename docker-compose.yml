@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+    taxas-api:
+        container_name: taxas-api
+        image: jabulgareli/soft-taxas-api
+        ports:
+            - "5000:80"
+
+    calculadora-api:
+        container_name: calculadora-api
+        image: jabulgareli/soft-calculadora-api
+        ports:
+            - "5001:80"
+        links:
+            - taxas-api

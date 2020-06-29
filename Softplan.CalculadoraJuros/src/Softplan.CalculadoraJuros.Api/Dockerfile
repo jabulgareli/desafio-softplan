@@ -7,6 +7,10 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["src/Softplan.CalculadoraJuros.Api/Softplan.CalculadoraJuros.Api.csproj", "src/Softplan.CalculadoraJuros.Api/"]
+COPY ["src/Softplan.CalculadoraJuros.Application/Softplan.CalculadoraJuros.Application.csproj", "src/Softplan.CalculadoraJuros.Application/"]
+COPY ["src/Softplan.CalculadoraJuros.Domain/Softplan.CalculadoraJuros.Domain.csproj", "src/Softplan.CalculadoraJuros.Domain/"]
+COPY ["src/Softplan.CalculadoraJuros.Cross.IoC.DI/Softplan.CalculadoraJuros.Cross.IoC.DI.csproj", "src/Softplan.CalculadoraJuros.Cross.IoC.DI/"]
+COPY ["src/Softplan.CalculadoraJuros.Infrastrucutre.TaxaApi/Softplan.CalculadoraJuros.Infrastrucutre.TaxaApi.csproj", "src/Softplan.CalculadoraJuros.Infrastrucutre.TaxaApi/"]
 RUN dotnet restore "src/Softplan.CalculadoraJuros.Api/Softplan.CalculadoraJuros.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Softplan.CalculadoraJuros.Api"

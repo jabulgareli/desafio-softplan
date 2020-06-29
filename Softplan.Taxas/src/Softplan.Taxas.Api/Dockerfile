@@ -7,6 +7,9 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["src/Softplan.Taxas.Api/Softplan.Taxas.Api.csproj", "src/Softplan.Taxas.Api/"]
+COPY ["src/Softplan.Taxas.Domain/Softplan.Taxas.Domain.csproj", "src/Softplan.Taxas.Domain/"]
+COPY ["src/Softplan.Taxas.Application/Softplan.Taxas.Application.csproj", "src/Softplan.Taxas.Application/"]
+COPY ["src/Softplan.Taxas.Cross.IoC.DI/Softplan.Taxas.Cross.IoC.DI.csproj", "src/Softplan.Taxas.Cross.IoC.DI/"]
 RUN dotnet restore "src/Softplan.Taxas.Api/Softplan.Taxas.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Softplan.Taxas.Api"
