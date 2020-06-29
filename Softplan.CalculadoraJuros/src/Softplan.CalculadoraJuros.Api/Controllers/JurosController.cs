@@ -14,12 +14,12 @@ namespace Softplan.CalculadoraJuros.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CalculadoraJurosController : ControllerBase
+    public class JurosController : ControllerBase
     {
         private IJurosAppService _jurosAppService;
-        private ILogger<CalculadoraJurosController> _logger;
+        private ILogger<JurosController> _logger;
 
-        public CalculadoraJurosController(IJurosAppService jurosAppService, ILogger<CalculadoraJurosController> logger)
+        public JurosController(IJurosAppService jurosAppService, ILogger<JurosController> logger)
         {
             _jurosAppService = jurosAppService;
             _logger = logger;
