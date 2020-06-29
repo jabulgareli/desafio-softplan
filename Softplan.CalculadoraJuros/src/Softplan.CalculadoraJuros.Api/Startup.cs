@@ -48,7 +48,7 @@ namespace Softplan.CalculadoraJuros.Api
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CalculadoraJuros V1");
+                c.SwaggerEndpoint("../swagger/v1/swagger.json", "CalculadoraJuros V1");
             });
 
             app.UseRouting();

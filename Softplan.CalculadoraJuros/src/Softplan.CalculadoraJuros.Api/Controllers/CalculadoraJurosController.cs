@@ -4,6 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Softplan.CalculadoraJuros.Application.Commands;
+using Softplan.CalculadoraJuros.Application.Interfaces;
+using Softplan.CalculadoraJuros.Domain.Exceptions;
+using Softplan.CalculadoraJuros.Domain.Interfaces.Services;
 
 namespace Softplan.CalculadoraJuros.Api.Controllers
 {
@@ -11,10 +16,34 @@ namespace Softplan.CalculadoraJuros.Api.Controllers
     [ApiController]
     public class CalculadoraJurosController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        private IJurosAppService _jurosAppService;
+        private ILogger<CalculadoraJurosController> _logger;
+
+        public CalculadoraJurosController(IJurosAppService jurosAppService, ILogger<CalculadoraJurosController> logger)
         {
-            return Ok();
+            _jurosAppService = jurosAppService;
+            _logger = logger;
+        }
+
+        [HttpGet("calculaJuros")]
+        public async Task<IActionResult> Get([FromQuery]decimal valorInicial, [FromQuery]int meses)
+        {
+            try
+            {
+                var command = new CalcularJurosCompostosCommand { ValorInicial = valorInicial, Meses = meses };
+                return Ok(await _jurosAppService.CalcularJurosCompostosAsync(command));
+
+            }
+            catch(ParametrosDeCalculoInvalidosException ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
     }
 }

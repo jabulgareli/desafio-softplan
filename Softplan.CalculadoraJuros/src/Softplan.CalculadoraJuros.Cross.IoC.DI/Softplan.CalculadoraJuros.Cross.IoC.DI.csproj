@@ -8,4 +8,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Softplan.CalculadoraJuros.Application\Softplan.CalculadoraJuros.Application.csproj" />
+    <ProjectReference Include="..\Softplan.CalculadoraJuros.Domain\Softplan.CalculadoraJuros.Domain.csproj" />
+    <ProjectReference Include="..\Softplan.CalculadoraJuros.Infrastrucutre.TaxaApi\Softplan.CalculadoraJuros.Infrastrucutre.TaxaApi.csproj" />
+  </ItemGroup>
+
 </Project>
