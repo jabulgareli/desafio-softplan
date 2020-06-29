@@ -31,5 +31,6 @@ O resultado será semelhante a imagem abaixo, o que mostra que os serviços est�
 As APIs estarão disponíveis para acesso e o endpoint do swagger estão nos endereços:
 
 **API de taxas:** http://localhost:5000/swagger
+
 **API de Cálculo** http://localhost:5001/swagger
 
