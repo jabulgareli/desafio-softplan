@@ -3,7 +3,7 @@
 O desafio está escrito em .net core 3.1 com testes unitários e de integração utilizando xUnit.
 
 Os projetos estão nos seguintes diretórios:
-![Diretórios de projeto](img/estrutura-pastas.png)
+![Diretórios de projeto](img/estrutura-pastas.PNG)
 
 ## API Template
 Para facilitar a criação das APIs com a estrutura que eu desejava, padronizei criando um project template que se encontra no diretório **Softplan.NetCore.MicroserviceProjectTemplate**.
@@ -24,7 +24,7 @@ Para subir o projeto, execute na raiz do repositório (onde o arquivo docker-com
 
 O resultado será semelhante a imagem abaixo, o que mostra que os serviços estão executando:
 
-![Diretórios de projeto](img/docker-compose.png)
+![Diretórios de projeto](img/docker-compose.PNG)
 
 As APIs estarão disponíveis para acesso e o endpoint do swagger estão nos endereços:
 
