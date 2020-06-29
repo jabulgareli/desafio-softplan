@@ -26,6 +26,7 @@ namespace Softplan.Taxas.Api.Controllers
         }
 
         [HttpGet("taxaJuros")]
+        [HttpGet("/taxaJuros")]
         public IActionResult Get()
         {
             try

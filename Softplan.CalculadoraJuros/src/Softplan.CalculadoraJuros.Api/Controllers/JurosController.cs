@@ -26,6 +26,7 @@ namespace Softplan.CalculadoraJuros.Api.Controllers
         }
 
         [HttpGet("calculaJuros")]
+        [HttpGet("/calculaJuros")]
         public async Task<IActionResult> Get([FromQuery]decimal valorInicial, [FromQuery]int meses)
         {
             try
