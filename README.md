@@ -3,6 +3,7 @@
 O desafio está escrito em .net core 3.1 com testes unitários e de integração utilizando xUnit.
 
 Os projetos estão nos seguintes diretórios:
+
 ![Diretórios de projeto](img/estrutura-pastas.PNG)
 
 ## API Template
@@ -23,6 +24,7 @@ As imagens estão armazenadas no meu Docker Hub, para executar, podemos somente 
 Para subir o projeto, execute na raiz do repositório (onde o arquivo docker-compose.yml está criado): `docker-compose up` 
 
 O resultado será semelhante a imagem abaixo, o que mostra que os serviços estão executando:
+
 
 ![Diretórios de projeto](img/docker-compose.PNG)
 
